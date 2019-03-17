@@ -1,17 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraControl : MonoBehaviour
 {
     [SerializeField]
     private Transform player;
     [SerializeField]
-    private float zoomEffectiveness;
+    private float zoomEffectiveness = 1000f;
     [SerializeField]
-    private float minDistance;
+    private float minDistance = 10f;
     [SerializeField]
-    private float maxDistance;
+    private float maxDistance = 50f;
+    [SerializeField]
+    private CinemachineVirtualCamera vcam;
+    [SerializeField]
+    private float defaultDeadZoneDepth = 10f;
+    [SerializeField]
+    private float defaultZDamping = 5f;
+    [SerializeField]
+    private float timeUntilAfterZoom = 0.1f;
+    private CinemachineFramingTransposer vcamTransposer;
+    private float zoom;
 
     // Start is called before the first frame update
     void Start()
@@ -22,16 +33,27 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float zoom = Input.GetAxisRaw("Mouse ScrollWheel");
-        
-        //Vector3 direction = player.position - gameObject.transform.position;
-        float distance = Vector3.Distance(gameObject.transform.position, player.position);
+        zoom = Input.GetAxisRaw("Mouse ScrollWheel");
 
-        if( !((distance <= minDistance && zoom > 0) || (distance >= maxDistance && zoom < 0)) )
+        CinemachineFramingTransposer vcamTransposer = vcam.GetCinemachineComponent<CinemachineFramingTransposer>();
+
+        if( (zoom != 0) && vcamTransposer.m_CameraDistance >= minDistance && vcamTransposer.m_CameraDistance <= maxDistance )
         {
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, player.position, zoom * zoomEffectiveness * Time.deltaTime);
+            StartCoroutine( afterZoom() );
+            vcamTransposer.m_DeadZoneDepth = 0;
+            vcamTransposer.m_ZDamping = 1;
+            vcamTransposer.m_CameraDistance -= zoom * zoomEffectiveness * Time.deltaTime;
         }
-
-        //gameObject.transform.position += direction.normalized * zoom * zoomEffectiveness * Time.deltaTime;
+        
+        vcamTransposer.m_CameraDistance = Mathf.Clamp(vcamTransposer.m_CameraDistance, minDistance, maxDistance);
     }
+
+    IEnumerator afterZoom()
+    {
+        CinemachineFramingTransposer vcamTransposer = vcam.GetCinemachineComponent<CinemachineFramingTransposer>();
+        yield return new WaitForSeconds(timeUntilAfterZoom);
+        vcamTransposer.m_DeadZoneDepth = defaultDeadZoneDepth;
+        vcamTransposer.m_ZDamping = defaultZDamping;
+    }
+
 }
