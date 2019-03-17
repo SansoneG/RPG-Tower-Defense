@@ -6,8 +6,6 @@ using Cinemachine;
 public class CameraControl : MonoBehaviour
 {
     [SerializeField]
-    private Transform player;
-    [SerializeField]
     private float zoomEffectiveness = 1000f;
     [SerializeField]
     private float minDistance = 10f;
