@@ -14,8 +14,6 @@ public class CameraControl : MonoBehaviour
     [SerializeField]
     private float maxDistance = 50f;
     [SerializeField]
-    private CinemachineVirtualCamera vcam;
-    [SerializeField]
     private float defaultDeadZoneDepth = 10f;
     [SerializeField]
     private float defaultZDamping = 5f;
@@ -27,15 +25,13 @@ public class CameraControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        vcamTransposer = GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineFramingTransposer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         zoom = Input.GetAxisRaw("Mouse ScrollWheel");
-
-        CinemachineFramingTransposer vcamTransposer = vcam.GetCinemachineComponent<CinemachineFramingTransposer>();
 
         if( (zoom != 0) && vcamTransposer.m_CameraDistance >= minDistance && vcamTransposer.m_CameraDistance <= maxDistance )
         {
@@ -50,7 +46,6 @@ public class CameraControl : MonoBehaviour
 
     IEnumerator afterZoom()
     {
-        CinemachineFramingTransposer vcamTransposer = vcam.GetCinemachineComponent<CinemachineFramingTransposer>();
         yield return new WaitForSeconds(timeUntilAfterZoom);
         vcamTransposer.m_DeadZoneDepth = defaultDeadZoneDepth;
         vcamTransposer.m_ZDamping = defaultZDamping;
