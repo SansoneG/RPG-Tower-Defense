@@ -545,12 +545,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab2359f3465af054194a260af05a826b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1608581120}
+  rotationSpeed: 5
   zoomEffectiveness: 1000
   minDistance: 10
   maxDistance: 50
-  defaultDeadZoneDepth: 10
-  defaultZDamping: 5
   timeUntilAfterZoom: 0.2
+  timeUntilAfterOrbit: 0.1
 --- !u!4 &1608581120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8333162469179269768, guid: 249ba3476f488da4d95bf892babcbeae,
