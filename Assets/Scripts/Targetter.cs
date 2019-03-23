@@ -7,6 +7,12 @@ public class Targetter : MonoBehaviour
 
     private Transform currentTarget;
 
+    public Transform CurrentTarget 
+    {
+        get { return currentTarget; }
+        private set { currentTarget = value; }
+    }
+
     [Header("Stats")]
 
     // range should maybe come from some sort of stats keeper
@@ -27,7 +33,7 @@ public class Targetter : MonoBehaviour
     [SerializeField]
     private float turnSpeed = 10f;
 
-    void Start()
+    public void Start()
     {
         InvokeRepeating("SearchForTarget", 0f, searchRate);
     }
@@ -35,7 +41,7 @@ public class Targetter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentTarget == null) 
+        if(CurrentTarget == null) 
             return;
 
         UpdateRotation();
@@ -59,17 +65,17 @@ public class Targetter : MonoBehaviour
 
         if(nearestEnemy != null && shortestDistance <= range) 
         {
-            currentTarget = nearestEnemy.transform;
+            CurrentTarget = nearestEnemy.transform;
         } 
         else
         {
-            currentTarget = null;
+            CurrentTarget = null;
         }
     }
 
     private void UpdateRotation() 
     {
-        var dir = currentTarget.position - transform.position;
+        var dir = CurrentTarget.position - transform.position;
         var lookRotation = Quaternion.LookRotation(dir);
         var rotation = (Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed)).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
@@ -80,10 +86,10 @@ public class Targetter : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
 
-        if(currentTarget != null) 
+        if(CurrentTarget != null) 
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawLine(transform.position, currentTarget.position);
+            Gizmos.DrawLine(transform.position, CurrentTarget.position);
         }
     }
 
