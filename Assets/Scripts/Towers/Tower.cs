@@ -15,16 +15,28 @@ public class Tower : MonoBehaviour
 
     void Awake()
     {
+        Initialize();
+    }
+
+    private void Initialize()
+    {
         SetTower(towers);
     }
 
-    void Update()
+    public bool UpgradeTower(int nextTowerIndex)
     {
-        if(Input.GetKeyDown(KeyCode.U))
+        if(nextTowerIndex < currentTowerLevel.upgradesTo.Count)
         {
-            var newTower = currentTowerLevel.upgradesTo[0];
+            var newTower = currentTowerLevel.upgradesTo[nextTowerIndex];
             SetTower(newTower);
+            return true;
         }
+        return false;
+    }
+
+    public void SellTower()
+    {
+        Destroy(gameObject);
     }
 
     private void SetTower(TowerLevel tower)

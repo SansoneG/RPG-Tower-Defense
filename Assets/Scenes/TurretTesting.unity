@@ -695,6 +695,62 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1730859653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1730859654}
+  - component: {fileID: 1730859655}
+  m_Layer: 0
+  m_Name: Tower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1730859654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730859653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1730859655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730859653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12757093987994744a52b98b60b53950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towers:
+    towerPrefab: {fileID: 128144992519944823, guid: 130fd037633fb6946be3297798670705,
+      type: 3}
+    upgradesTo:
+    - towerPrefab: {fileID: 7731684107699095554, guid: 186400df37fa34045bca400beecd481d,
+        type: 3}
+      upgradesTo: []
+    - towerPrefab: {fileID: 4251380424393085201, guid: 683205849ecc99a409e8009b673351d9,
+        type: 3}
+      upgradesTo: []
+    - towerPrefab: {fileID: 3699164735666100132, guid: 5b5998fe4b4a3a240b6d8e7495f5de7f,
+        type: 3}
+      upgradesTo: []
 --- !u!1 &151253806153787580
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +778,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975437454868620184, guid: 8979b8610ce3ef24cbcb31adf40c92d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5975437454868856760, guid: 8979b8610ce3ef24cbcb31adf40c92d7,
         type: 3}
@@ -783,7 +844,8 @@ PrefabInstance:
       propertyPath: partToRotate
       value: 
       objectReference: {fileID: 13686797}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4075427082893887699, guid: 8979b8610ce3ef24cbcb31adf40c92d7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8979b8610ce3ef24cbcb31adf40c92d7, type: 3}
 --- !u!95 &3694131509429225029
 Animator:
