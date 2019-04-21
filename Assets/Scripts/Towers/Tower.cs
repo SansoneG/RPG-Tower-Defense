@@ -15,11 +15,6 @@ public class Tower : MonoBehaviour
 
     void Awake()
     {
-        Initialize();
-    }
-
-    private void Initialize()
-    {
         SetTower(towers);
     }
 
