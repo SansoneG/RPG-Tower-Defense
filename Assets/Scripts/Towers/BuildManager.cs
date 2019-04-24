@@ -6,10 +6,11 @@ using UnityEngine.EventSystems;
 public class BuildManager : MonoBehaviour
 {
 
+    // Maybe we dont really need to safe this here
     private TowerSpace selectedTowerSpace;
 
     [SerializeField]
-    private BuildUI buildUI;
+    private TowerSpaceUI buildUI;
 
     void Update()
     {
@@ -55,10 +56,7 @@ public class BuildManager : MonoBehaviour
     {
         selectedTowerSpace = towerSpace;
 
-        if(selectedTowerSpace.CurrentTower == null)
-        {
-            buildUI.Select(selectedTowerSpace);
-        }
+        buildUI.Select(selectedTowerSpace);
     }
 
     private void Deselect()
@@ -66,16 +64,6 @@ public class BuildManager : MonoBehaviour
         selectedTowerSpace = null;
 
         buildUI.Deselect();
-    }
-
-    public void BuildTower()
-    {
-        if(selectedTowerSpace.CurrentTower != null)
-            return;
-
-        selectedTowerSpace.BuildTower();
-
-        Deselect();
     }
 
 }
