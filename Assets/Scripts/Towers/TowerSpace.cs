@@ -36,4 +36,11 @@ public class TowerSpace : MonoBehaviour
         Debug.Log("Tower built");
     }
 
+    public void SellTower()
+    {
+        currentTower.SellTower();
+
+        currentTower = null;
+    }
+
 }

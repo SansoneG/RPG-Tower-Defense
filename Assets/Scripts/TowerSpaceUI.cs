@@ -10,10 +10,13 @@ public class TowerSpaceUI : MonoBehaviour
     private TowerSpace towerSpace;
 
     [SerializeField]
-    private Transform rotationPoint;
+    private Transform[] rotationPoints;
 
     [SerializeField]
     private GameObject buildUI;
+
+    [SerializeField]
+    private GameObject upgradeUI;
 
     void Start()
     {
@@ -22,8 +25,11 @@ public class TowerSpaceUI : MonoBehaviour
 
     void Update()
     {
-        rotationPoint.LookAt(rotationPoint.position + mainCamera.transform.rotation * Vector3.forward, 
+        foreach(var rotationPoint in rotationPoints)
+        {
+            rotationPoint.LookAt(rotationPoint.position + mainCamera.transform.rotation * Vector3.forward, 
                     mainCamera.transform.rotation * Vector3.up);
+        }
     }
 
     public void Select(TowerSpace ts)
@@ -40,6 +46,20 @@ public class TowerSpaceUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void UpdateUI()
+    {
+        if(towerSpace.CurrentTower == null)
+        {
+            buildUI.SetActive(true);
+            upgradeUI.SetActive(false);
+        }
+        else
+        {
+            buildUI.SetActive(false);
+            upgradeUI.SetActive(true);
+        }
+    }
+
     public void BuildTower()
     {
         if(towerSpace.CurrentTower != null)
@@ -50,16 +70,11 @@ public class TowerSpaceUI : MonoBehaviour
         UpdateUI();
     }
 
-    private void UpdateUI()
+    public void SellTower()
     {
-        if(towerSpace.CurrentTower == null)
-        {
-            buildUI.SetActive(true);
-        }
-        else
-        {
-            buildUI.SetActive(false);
-        }
+        towerSpace.SellTower();
+
+        UpdateUI();
     }
 
 }
