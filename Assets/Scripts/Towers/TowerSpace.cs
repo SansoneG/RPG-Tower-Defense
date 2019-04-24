@@ -6,12 +6,23 @@ public class TowerSpace : MonoBehaviour
 {
 
     [SerializeField]
-    private Transform towerPlacePosition;
+    public Transform towerPlacePosition;
 
     [SerializeField]
     private Tower towerPrefab;
 
     private Tower currentTower;
+    public Tower CurrentTower
+    {
+        get
+        {
+            return currentTower;
+        }
+        private set
+        {
+            currentTower = value;
+        }
+    }
 
     public void BuildTower() 
     {

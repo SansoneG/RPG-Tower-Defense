@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BuildManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    private TowerSpace selectedTowerSpace;
+
+    [SerializeField]
+    private BuildUI buildUI;
+
     void Update()
     {
+
+        if(EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if(Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -25,16 +29,18 @@ public class BuildManager : MonoBehaviour
 
                 while(true)
                 {
-                    if(go.GetComponent<TowerSpace>() != null)
+                    var ts = go.GetComponent<TowerSpace>();
+
+                    if(ts != null)
                     {
                         //Debug.Log("We hit a Tower Space");
-                        // For now just place the standard tower from the tower space itself
-                        go.GetComponent<TowerSpace>().BuildTower();
+                        SelectTowerSpace(ts);
                         break;
                     }
                     else if(go.transform.parent == null)
                     {
                         //Debug.Log("We hit something else");
+                        Deselect();
                         break;
                     }
                     
@@ -43,6 +49,33 @@ public class BuildManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void SelectTowerSpace(TowerSpace towerSpace)
+    {
+        selectedTowerSpace = towerSpace;
+
+        if(selectedTowerSpace.CurrentTower == null)
+        {
+            buildUI.Select(selectedTowerSpace);
+        }
+    }
+
+    private void Deselect()
+    {
+        selectedTowerSpace = null;
+
+        buildUI.Deselect();
+    }
+
+    public void BuildTower()
+    {
+        if(selectedTowerSpace.CurrentTower != null)
+            return;
+
+        selectedTowerSpace.BuildTower();
+
+        Deselect();
     }
 
 }
