@@ -24,23 +24,26 @@ public class TowerSpace : MonoBehaviour
         }
     }
 
-    public void BuildTower() 
+    public bool BuildTower() 
     {
         if(currentTower != null)
         {
-            Debug.Log("There is already a tower");
-            return;
+            return false;
         }
         currentTower = Instantiate(towerPrefab, towerPlacePosition.position, Quaternion.identity);
         currentTower.transform.SetParent(transform);
-        Debug.Log("Tower built");
+        return true;
     }
 
-    public void SellTower()
+    public bool SellTower()
     {
+        if(currentTower == null)
+            return false;
+
         currentTower.SellTower();
 
         currentTower = null;
+        return true;
     }
 
 }

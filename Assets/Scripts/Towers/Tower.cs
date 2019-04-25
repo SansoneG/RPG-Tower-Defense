@@ -30,7 +30,7 @@ public class Tower : MonoBehaviour
     }
 
     public void SellTower()
-    {
+    {       
         Destroy(gameObject);
     }
 
@@ -43,6 +43,11 @@ public class Tower : MonoBehaviour
 
         currentTower = Instantiate(currentTowerLevel.towerPrefab, transform.position, transform.rotation);
         currentTower.transform.SetParent(transform);
+    }
+
+    public List<TowerLevel> GetNextUpgrades()
+    {
+        return currentTowerLevel.upgradesTo;
     }
 
 }
