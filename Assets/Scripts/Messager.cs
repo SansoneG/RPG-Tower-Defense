@@ -46,13 +46,10 @@ public class Messager : MonoBehaviour
         messageText.text = message;
         lastMessageCountdown = showMessageTime;
 
-        if(!isShowingMessage)
-        {
-            isShowingMessage = true;
-            currentFadeIn = StartCoroutine(FadeIn(1f, messageText));
-            if(currentFadeOut != null)
-                StopCoroutine(currentFadeOut);
-        }
+        isShowingMessage = true;
+        currentFadeIn = StartCoroutine(FadeIn(1f, messageText));
+        if(currentFadeOut != null)
+            StopCoroutine(currentFadeOut);
     }
     
     public static void NewMessage(string message)

@@ -106,9 +106,15 @@ public class TowerSpaceUI : MonoBehaviour
         var success = towerSpace.BuildTower();
 
         if(success)
+        {
             Debug.Log("Tower built");
+            Messager.NewMessage("Tower built");
+        }
         else
+        {
             Debug.Log("There is already a Tower here");
+            Messager.NewMessage("There is already a Tower here");
+        }
         
         UpdateUI();
     }
@@ -118,9 +124,15 @@ public class TowerSpaceUI : MonoBehaviour
         var success = towerSpace.SellTower();
 
         if(success)
+        {
             Debug.Log("Tower sold");
+            Messager.NewMessage("Tower sold");
+        }
         else
+        {
             Debug.Log("There is no Tower here");
+            Messager.NewMessage("There is no Tower here");
+        }
 
         UpdateUI();
     }
@@ -130,9 +142,15 @@ public class TowerSpaceUI : MonoBehaviour
         var success = towerSpace.CurrentTower.UpgradeTower(index);
 
         if(success)
+        {
             Debug.Log("Tower upgraded");
+            Messager.NewMessage("Tower upgraded");
+        }
         else
+        {
             Debug.Log("Couldn't upgrade Tower");
+            Messager.NewMessage("Couldn't upgrade Tower");
+        }
 
         UpdateUI();
     }
