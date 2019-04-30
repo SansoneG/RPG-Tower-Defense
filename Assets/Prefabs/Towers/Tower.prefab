@@ -44,13 +44,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers:
-    towerPrefab: {fileID: 128144992519944823, guid: 130fd037633fb6946be3297798670705,
+    towerPrefab: {fileID: 5975437454868620184, guid: 8979b8610ce3ef24cbcb31adf40c92d7,
       type: 3}
     upgradesTo:
     - towerPrefab: {fileID: 7731684107699095554, guid: 186400df37fa34045bca400beecd481d,
         type: 3}
       upgradesTo: []
-    - towerPrefab: {fileID: 4251380424393085201, guid: 683205849ecc99a409e8009b673351d9,
+    - towerPrefab: {fileID: 3859156263143468969, guid: 0bc4cbce3ffb592408137e5f13d252df,
         type: 3}
       upgradesTo: []
     - towerPrefab: {fileID: 3699164735666100132, guid: 5b5998fe4b4a3a240b6d8e7495f5de7f,
