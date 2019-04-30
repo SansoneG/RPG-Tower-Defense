@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8652516782573843172}
-  - component: {fileID: 5584037743761520808}
+  - component: {fileID: 428854893966733002}
+  - component: {fileID: 2407632409394034589}
   m_Layer: 0
-  m_Name: Missle
+  m_Name: Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +33,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5584037743761520808
+--- !u!54 &428854893966733002
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449594348779069649}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2407632409394034589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +58,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1449594348779069649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec65dad74a39a04438a6f32259a0ce8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d9d1658c82000444ad2a53473c49129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
+  rotateSpeed: 100
 --- !u!1 &3589113520805141412
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,6 +74,7 @@ GameObject:
   - component: {fileID: 3589113520805103492}
   - component: {fileID: 3589113520804300708}
   - component: {fileID: 3589113520803202404}
+  - component: {fileID: 5479976590784315173}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -122,3 +141,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5479976590784315173
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3589113520805141412}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02187006, y: 0.0077815633, z: 0.0077244304}
+  m_Center: {x: -0.0056000273, y: -0.0000000030267984, z: -0.00000000849832}

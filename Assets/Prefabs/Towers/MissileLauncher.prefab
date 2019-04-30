@@ -92,8 +92,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 1
-  projectilePrefab: {fileID: 5584037743761520808, guid: 91d594b3612f12741b443f20bd2a889f,
+  projectilePrefab: {fileID: 2407632409394034589, guid: 91d594b3612f12741b443f20bd2a889f,
     type: 3}
+  damage: 10
   targetter: {fileID: 4832122859440058689}
   firePoint: {fileID: 6925057322426340227}
 --- !u!1 &3273171492748607924
@@ -136,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7021504196180798078}
   m_Layer: 0
-  m_Name: MissleLauncher
+  m_Name: MissileLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

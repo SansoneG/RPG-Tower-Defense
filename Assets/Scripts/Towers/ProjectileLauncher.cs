@@ -15,6 +15,9 @@ public class ProjectileLauncher : MonoBehaviour
     [SerializeField]
     private Projectile projectilePrefab;
 
+    [SerializeField]
+    private float damage = 10;
+
     [Header("Unity Setup")]
 
     [SerializeField]
@@ -41,7 +44,7 @@ public class ProjectileLauncher : MonoBehaviour
     private void Shoot()
     {
         Projectile projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-        projectile.Shoot(targetter.CurrentTarget);
+        projectile.Shoot(targetter.CurrentTarget, damage);
     }
 
 }
