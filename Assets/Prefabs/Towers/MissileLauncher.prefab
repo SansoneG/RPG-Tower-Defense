@@ -136,6 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7021504196180798078}
+  - component: {fileID: 8199149958320555550}
   m_Layer: 0
   m_Name: MissileLauncher
   m_TagString: Untagged
@@ -161,6 +162,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8199149958320555550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3859156263143468969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93c90545b0833644b2c340bfff078fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Missile Launcher
 --- !u!1 &5271226042481631716
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +186,7 @@ GameObject:
   - component: {fileID: 5271226042481147332}
   - component: {fileID: 5271226042480344550}
   - component: {fileID: 5271226042479378214}
+  - component: {fileID: 4110538359733629040}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -239,6 +254,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4110538359733629040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5271226042481631716}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03910111, y: 0.019755678, z: 0.026216822}
+  m_Center: {x: -0.005960458, y: -4.656615e-10, z: 0.005361884}
 --- !u!1 &5271226042481631718
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +278,7 @@ GameObject:
   - component: {fileID: 5271226042481147334}
   - component: {fileID: 5271226042480344544}
   - component: {fileID: 5271226042479378208}
+  - component: {fileID: 8506550822794387741}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -317,6 +346,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8506550822794387741
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5271226042481631718}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0409298, y: 0.03574633, z: 0.024458244}
+  m_Center: {x: -0.00068532117, y: -9.865078e-17, z: 0.013883861}
 --- !u!1 &7111257732293399728
 GameObject:
   m_ObjectHideFlags: 0

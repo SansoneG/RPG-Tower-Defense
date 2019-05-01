@@ -81,6 +81,11 @@ public class Targetter : MonoBehaviour
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
+    public float GetRange()
+    {
+        return range;
+    }
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

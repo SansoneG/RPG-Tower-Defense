@@ -78,6 +78,7 @@ MonoBehaviour:
   fireRate: 1
   projectilePrefab: {fileID: 7545261588853786148, guid: 450aac2762ddc07438511271456aad95,
     type: 3}
+  damage: 10
   targetter: {fileID: 8679750753607008037}
   firePoint: {fileID: 9183430263084544264}
 --- !u!1 &5434802992442600625
@@ -137,9 +138,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5975437454868856760}
-  - component: {fileID: 4075427082893887699}
+  - component: {fileID: 2463361073519710283}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: StandardTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +164,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4075427082893887699
+--- !u!114 &2463361073519710283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5975437454868620184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0cddbf5a56f4c74b8fc1ada52264e5a, type: 3}
+  m_Script: {fileID: 11500000, guid: b93c90545b0833644b2c340bfff078fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5975437454868620186
@@ -186,6 +187,7 @@ GameObject:
   - component: {fileID: 5975437454868856762}
   - component: {fileID: 5975437454871756696}
   - component: {fileID: 5975437454870625624}
+  - component: {fileID: 5730921363843965180}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -254,6 +256,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5730921363843965180
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975437454868620186}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 22.471315, y: 30.28496, z: 72.18247}
+  m_Center: {x: -5.570664, y: 0.000011444094, z: -22.479565}
 --- !u!1 &5975437454868620188
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +280,7 @@ GameObject:
   - component: {fileID: 5975437454868856764}
   - component: {fileID: 5975437454871756698}
   - component: {fileID: 5975437454870625626}
+  - component: {fileID: 6962348473551323629}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -332,6 +348,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6962348473551323629
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975437454868620188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.490976, y: 27.18643, z: 26.925241}
+  m_Center: {x: -24.137909, y: 0.000009536742, z: -41.801205}
 --- !u!1 &8278136494368690216
 GameObject:
   m_ObjectHideFlags: 0

@@ -96,6 +96,11 @@ public class TowerSpaceUI : MonoBehaviour
             button.transform.SetParent(upgradeButtonsRoot.transform, false);
             int index = i;
             button.GetComponent<Button>().onClick.AddListener( () => UpgradeTower(index) );
+
+            var towerInfo = towerUpgrade.towerPrefab.GetComponent<TowerInfo>();
+            if(towerInfo != null)
+                button.GetComponent<UpgradeButton>().Setup(towerInfo);
+
             i++;
         }
 

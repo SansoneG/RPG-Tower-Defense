@@ -9,7 +9,7 @@ public class ProjectileLauncher : MonoBehaviour
 
     // fireRate should maybe come from some sort of stats keeper
     [SerializeField]
-    private float fireRate = 1f;
+    private float attacksPerSecond = 1f;
     private float fireCountdown;
 
     [SerializeField]
@@ -36,7 +36,7 @@ public class ProjectileLauncher : MonoBehaviour
         if(fireCountdown <= 0f)
         {
             Shoot();
-            fireCountdown = 1f / fireRate;
+            fireCountdown = 1f / attacksPerSecond;
         }
 
     }
@@ -45,6 +45,16 @@ public class ProjectileLauncher : MonoBehaviour
     {
         Projectile projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         projectile.Shoot(targetter.CurrentTarget, damage);
+    }
+
+    public float GetDamage()
+    {
+        return damage;
+    }
+
+    public float GetAttacksPerSecond()
+    {
+        return attacksPerSecond;
     }
 
 }
