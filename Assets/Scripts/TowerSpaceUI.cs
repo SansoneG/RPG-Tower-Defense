@@ -23,11 +23,16 @@ public class TowerSpaceUI : MonoBehaviour
     private GameObject upgradeButtonsRoot;
 
     [SerializeField]
+    private GameObject maxLevelButton;
+
+    [SerializeField]
     private GameObject upgradeButton;
 
     void Start()
     {
         mainCamera = Camera.main;
+        buildUI.SetActive(false);
+        upgradeUI.SetActive(false);
     }
 
     void Update()
@@ -65,6 +70,9 @@ public class TowerSpaceUI : MonoBehaviour
             CreateUpgradeButtons();
             buildUI.SetActive(false);
             upgradeUI.SetActive(true);
+            /* var size = upgradeUI.GetComponent<RectTransform>().sizeDelta;
+            size.x = Mathf.Max(towerSpace.CurrentTower.GetNextUpgrades().Count * 40, 80);
+            upgradeUI.GetComponent<RectTransform>().sizeDelta = size; */
         }
     }
 
@@ -90,6 +98,14 @@ public class TowerSpaceUI : MonoBehaviour
             button.GetComponent<Button>().onClick.AddListener( () => UpgradeTower(index) );
             i++;
         }
+
+        // Create MAX Level button if we have no further upgrades
+        if(i == 0)
+        {
+            var button = Instantiate(maxLevelButton);
+            button.transform.SetParent(upgradeButtonsRoot.transform, false);
+        }
+
     }
 
     private GameObject CreateButton(TowerLevel towerLevel)

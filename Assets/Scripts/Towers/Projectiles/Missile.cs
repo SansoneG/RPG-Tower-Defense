@@ -18,7 +18,7 @@ public class Missile : Projectile
             dir.Normalize();
 
             var lookTarget = target.position;
-            lookTarget.y = 0;
+            lookTarget.y = transform.position.y;
             transform.LookAt(lookTarget);
 
             transform.Translate(dir * speed * Time.deltaTime, Space.World);
