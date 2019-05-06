@@ -6,6 +6,9 @@ public class Missile : Projectile
 {
 
     [SerializeField]
+    private GameObject impactEffect;
+    
+    [SerializeField]
     private float radius = 2f;
 
     // Update is called once per frame
@@ -34,7 +37,7 @@ public class Missile : Projectile
         base.Shoot(target, damage);
     }
 
-    protected override void DamageEnemy(GameObject go)
+    protected override void HitTarget(GameObject go)
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
@@ -45,6 +48,9 @@ public class Missile : Projectile
             if(enemy != null)
                 enemy.TakeDamage(damage);
         }
+
+        var effect = Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(effect, 2);
 
         Destroy(gameObject);
     }

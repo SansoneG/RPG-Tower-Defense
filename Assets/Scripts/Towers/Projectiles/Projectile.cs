@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
         if(go.CompareTag("Enemy"))
         {
             //Debug.Log("Hit an Enemy");
-            DamageEnemy(go);
+            HitTarget(go);
         }
         else
         {
@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    protected virtual void DamageEnemy(GameObject go)
+    protected virtual void HitTarget(GameObject go)
     {
         Destroy(gameObject);
     }

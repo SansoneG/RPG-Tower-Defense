@@ -62,7 +62,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  rotateSpeed: 100
+  impactEffect: {fileID: 583728237400073370, guid: efdc1c8c886a2194e89b2f8cd69163c8,
+    type: 3}
+  radius: 2
 --- !u!1 &3589113520805141412
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,9 @@ using UnityEngine;
 public class Bullet : Projectile
 {
 
+    [SerializeField]
+    private GameObject impactEffect;
+
     private Vector3 direction;
 
     void Update()
@@ -21,12 +24,15 @@ public class Bullet : Projectile
         this.direction = dir.normalized;
     }
 
-    protected override void DamageEnemy(GameObject go)
+    protected override void HitTarget(GameObject go)
     {
         var enemy = go.GetComponent<Enemy>();
         
         if(enemy != null)
             enemy.TakeDamage(damage);
+
+        var effect = Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(effect, 2);
 
         Destroy(gameObject);
     }
