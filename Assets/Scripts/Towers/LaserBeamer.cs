@@ -15,6 +15,12 @@ public class LaserBeamer : MonoBehaviour, Weapon
     [SerializeField]
     private Targetter targetter;
 
+    [SerializeField]
+    private ParticleSystem impactEffect;
+
+    [SerializeField]
+    private Light impactLight;
+
     private LineRenderer lineRenderer;
 
     void Awake()
@@ -27,19 +33,37 @@ public class LaserBeamer : MonoBehaviour, Weapon
         if(targetter.CurrentTarget == null)
         {
             if(lineRenderer.enabled)
+            {
                 lineRenderer.enabled = false;
+                impactEffect.Stop();
+                impactLight.enabled = false;
+            }
             return;
         }
 
+        ShowLaser();        
+
+        DamageEnemy();
+    }
+
+    private void ShowLaser()
+    {
         var targetPos = targetter.CurrentTarget.position;
         targetPos.y = laserPosition.position.y;
         lineRenderer.SetPosition(0, laserPosition.position);
         lineRenderer.SetPosition(1, targetPos);
 
-        if(!lineRenderer.enabled)
-            lineRenderer.enabled = true;
+        Vector3 dir = targetPos - laserPosition.position;
+        impactEffect.transform.rotation = Quaternion.LookRotation(-dir);
 
-        DamageEnemy();
+        impactEffect.transform.position = targetPos;
+
+        if(!lineRenderer.enabled)
+        {
+            lineRenderer.enabled = true;
+            impactEffect.Play();
+            impactLight.enabled = true;
+        }
     }
 
     private void DamageEnemy()
