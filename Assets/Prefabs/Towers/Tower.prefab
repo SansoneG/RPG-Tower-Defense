@@ -47,12 +47,12 @@ MonoBehaviour:
     towerPrefab: {fileID: 5975437454868620184, guid: 8979b8610ce3ef24cbcb31adf40c92d7,
       type: 3}
     upgradesTo:
-    - towerPrefab: {fileID: 7731684107699095554, guid: 186400df37fa34045bca400beecd481d,
+    - towerPrefab: {fileID: 4630648797227390025, guid: 41ffb3ee82061e44fbd1875e499c83de,
         type: 3}
       upgradesTo: []
     - towerPrefab: {fileID: 3859156263143468969, guid: 0bc4cbce3ffb592408137e5f13d252df,
         type: 3}
       upgradesTo: []
-    - towerPrefab: {fileID: 3699164735666100132, guid: 5b5998fe4b4a3a240b6d8e7495f5de7f,
+    - towerPrefab: {fileID: 8812156940242402524, guid: 57bad9055b9c4f046aef041a19462a08,
         type: 3}
       upgradesTo: []

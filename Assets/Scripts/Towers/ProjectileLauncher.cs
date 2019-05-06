@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileLauncher : MonoBehaviour
+public class ProjectileLauncher : MonoBehaviour, Weapon
 {
 
     [Header("Stats")]
@@ -47,14 +47,9 @@ public class ProjectileLauncher : MonoBehaviour
         projectile.Shoot(targetter.CurrentTarget, damage);
     }
 
-    public float GetDamage()
+    public float GetDamagePerSecond()
     {
-        return damage;
-    }
-
-    public float GetAttacksPerSecond()
-    {
-        return attacksPerSecond;
+        return damage * attacksPerSecond;
     }
 
 }

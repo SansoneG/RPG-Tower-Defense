@@ -26,7 +26,7 @@ public class Bullet : Projectile
         var enemy = go.GetComponent<Enemy>();
         
         if(enemy != null)
-            enemy.Damage(damage);
+            enemy.TakeDamage(damage);
 
         Destroy(gameObject);
     }

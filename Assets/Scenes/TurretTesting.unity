@@ -2769,6 +2769,36 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4795138524671271428, guid: abae59b78622a9b4ca5989b04ea73839,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795138524671271428, guid: abae59b78622a9b4ca5989b04ea73839,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156623263173134619, guid: abae59b78622a9b4ca5989b04ea73839,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156623263173134619, guid: abae59b78622a9b4ca5989b04ea73839,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7094091267701454206, guid: abae59b78622a9b4ca5989b04ea73839,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7094091267701454206, guid: abae59b78622a9b4ca5989b04ea73839,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abae59b78622a9b4ca5989b04ea73839, type: 3}
 --- !u!1 &4947445294466486945
@@ -3759,7 +3789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6caadd62e35484b83db6def0439378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 400
+  moveSpeed: 500
   turnSpeed: 8
 --- !u!143 &5175751898432199443
 CharacterController:

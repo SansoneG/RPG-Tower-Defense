@@ -12,7 +12,7 @@ public class TowerInfo : MonoBehaviour
 
     private Targetter targetter;
 
-    private ProjectileLauncher[] launchers;
+    private Weapon[] weapons;
 
     public string GetName()
     {
@@ -29,15 +29,13 @@ public class TowerInfo : MonoBehaviour
 
     public float GetDamagePerSecond()
     {
-        // For now just get the projectile launcher, cause there arent any others
-        launchers = GetComponentsInChildren<ProjectileLauncher>();
+        weapons = GetComponentsInChildren<Weapon>();
 
         var dmgPerSec = 0f;
 
-        foreach (var launcher in launchers)
+        foreach (var weapon in weapons)
         {
-            Debug.Log("!");
-            dmgPerSec += launcher.GetAttacksPerSecond() * launcher.GetDamage();
+            dmgPerSec += weapon.GetDamagePerSecond();
         }
 
         return dmgPerSec;

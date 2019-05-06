@@ -43,7 +43,7 @@ public class Missile : Projectile
             var enemy = collider.gameObject.GetComponent<Enemy>();
         
             if(enemy != null)
-                enemy.Damage(damage);
+                enemy.TakeDamage(damage);
         }
 
         Destroy(gameObject);
