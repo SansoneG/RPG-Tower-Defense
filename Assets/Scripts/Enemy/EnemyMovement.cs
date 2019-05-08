@@ -11,6 +11,9 @@ public class EnemyMovement : MonoBehaviour
     private float visionRange = 5f;
 
     [SerializeField]
+    private float attackDamage = 10f;
+
+    [SerializeField]
     private float attackRange = 1f;
 
     [SerializeField]
@@ -58,6 +61,7 @@ public class EnemyMovement : MonoBehaviour
                 {
                     Debug.Log("Attack");
                     attackCooldown = 1f / attackSpeed;
+                    Attack();
                 }
             }
             else
@@ -70,6 +74,18 @@ public class EnemyMovement : MonoBehaviour
             agent.SetDestination(destination.position);
             agent.isStopped = false;
         }        
+    }
+
+    private void Attack()
+    {
+        var building = target.GetComponent<Building>();
+
+        if(building == null)
+        {
+            Debug.Log("Why does " + gameObject.name + " has no Building COomponent");
+            return;
+        }
+        building.TakeDamage(attackDamage);
     }
 
     private void FaceTarget(Vector3 position)

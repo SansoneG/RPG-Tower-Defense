@@ -32,6 +32,7 @@ public class TowerSpace : MonoBehaviour
         }
         currentTower = Instantiate(towerPrefab, towerPlacePosition.position, Quaternion.identity);
         currentTower.transform.SetParent(transform);
+        currentTower.SetTowerSpace(this);
         return true;
     }
 
@@ -44,6 +45,11 @@ public class TowerSpace : MonoBehaviour
 
         currentTower = null;
         return true;
+    }
+
+    public void OnTowerDestroyed()
+    {
+        currentTower = null;
     }
 
 }

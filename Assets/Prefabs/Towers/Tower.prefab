@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6938234843068192352}
   m_Layer: 0
   m_Name: Tower
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,16 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12757093987994744a52b98b60b53950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   towers:
-    towerPrefab: {fileID: 5975437454868620184, guid: 8979b8610ce3ef24cbcb31adf40c92d7,
+    towerPrefab: {fileID: 2463361073519710283, guid: 8979b8610ce3ef24cbcb31adf40c92d7,
       type: 3}
     upgradesTo:
-    - towerPrefab: {fileID: 4630648797227390025, guid: 41ffb3ee82061e44fbd1875e499c83de,
+    - towerPrefab: {fileID: 3495294580935157658, guid: 41ffb3ee82061e44fbd1875e499c83de,
         type: 3}
       upgradesTo: []
-    - towerPrefab: {fileID: 3859156263143468969, guid: 0bc4cbce3ffb592408137e5f13d252df,
+    - towerPrefab: {fileID: 8199149958320555550, guid: 0bc4cbce3ffb592408137e5f13d252df,
         type: 3}
       upgradesTo: []
-    - towerPrefab: {fileID: 8812156940242402524, guid: 57bad9055b9c4f046aef041a19462a08,
+    - towerPrefab: {fileID: 6625981598099047768, guid: 57bad9055b9c4f046aef041a19462a08,
         type: 3}
       upgradesTo: []

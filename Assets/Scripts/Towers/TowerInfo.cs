@@ -10,6 +10,9 @@ public class TowerInfo : MonoBehaviour
     [SerializeField]
     private string name = "Tower";
 
+    [SerializeField]
+    private float health = 100;
+
     private Targetter targetter;
 
     private Weapon[] weapons;
