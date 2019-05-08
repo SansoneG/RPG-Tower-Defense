@@ -42,6 +42,12 @@ public class TowerSpaceUI : MonoBehaviour
             rotationPoint.LookAt(rotationPoint.position + mainCamera.transform.rotation * Vector3.forward, 
                     mainCamera.transform.rotation * Vector3.up);
         }
+
+        // maybe temporary fix, when the tower gets destroyed
+        if(gameObject.activeSelf && upgradeUI.activeSelf && towerSpace.CurrentTower == null)
+        {
+            UpdateUI();
+        }
     }
 
     public void Select(TowerSpace ts)
@@ -70,9 +76,6 @@ public class TowerSpaceUI : MonoBehaviour
             CreateUpgradeButtons();
             buildUI.SetActive(false);
             upgradeUI.SetActive(true);
-            /* var size = upgradeUI.GetComponent<RectTransform>().sizeDelta;
-            size.x = Mathf.Max(towerSpace.CurrentTower.GetNextUpgrades().Count * 40, 80);
-            upgradeUI.GetComponent<RectTransform>().sizeDelta = size; */
         }
     }
 
@@ -142,6 +145,9 @@ public class TowerSpaceUI : MonoBehaviour
 
     public void SellTower()
     {
+        if(towerSpace.CurrentTower == null)
+            return;
+
         var success = towerSpace.SellTower();
 
         if(success)
@@ -160,6 +166,9 @@ public class TowerSpaceUI : MonoBehaviour
 
     public void UpgradeTower(int index)
     {
+        if(towerSpace.CurrentTower == null)
+            return;
+
         var success = towerSpace.CurrentTower.UpgradeTower(index);
 
         if(success)

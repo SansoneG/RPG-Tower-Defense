@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : Building
+public class Tower : MonoBehaviour
 {
   
     // Make this some kind of central statc thing maybe
@@ -13,17 +13,9 @@ public class Tower : Building
 
     private TowerInfo currentTower;
 
-    private TowerSpace towerSpace;
-
     void Awake()
     {
         SetTower(towers);
-    }
-
-    // Dont really like, that the tower needs to know its tower space
-    public void SetTowerSpace(TowerSpace towerSpace)
-    {
-        this.towerSpace = towerSpace;
     }
 
     public bool UpgradeTower(int nextTowerIndex)
@@ -58,10 +50,9 @@ public class Tower : Building
         return currentTowerLevel.upgradesTo;
     }
 
-    public override void OnDestroy()
+    public void Destroy()
     {
         Debug.Log("Something destroyed this tower");
-        towerSpace.OnTowerDestroyed();
         Destroy(gameObject);
     }
 

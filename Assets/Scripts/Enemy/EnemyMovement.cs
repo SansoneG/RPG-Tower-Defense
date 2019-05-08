@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
     private float attackCooldown;
 
     [SerializeField]
-    private string buildingtag = "Building";
+    private string friendlyTag = "Friendly";
 
     [SerializeField]
     private Transform destination;
@@ -97,7 +97,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void SearchForTarget()
     {
-        GameObject[] buildings = GameObject.FindGameObjectsWithTag(buildingtag);
+        GameObject[] buildings = GameObject.FindGameObjectsWithTag(friendlyTag);
 
         float shortestDistance = Mathf.Infinity;
         GameObject nearestBuilding = null;
