@@ -23,12 +23,15 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        var go = collider.gameObject;
+        var unit = collider.gameObject.GetComponent<Unit>();
 
-        if(go.CompareTag("Enemy"))
+        if(unit != null)
         {
-            //Debug.Log("Hit an Enemy");
-            HitTarget(go);
+            if(unit.Team == Team.Monster)
+            {
+                //Debug.Log("Hit an Enemy");
+                HitTarget(unit);
+            }
         }
         else
         {
@@ -37,7 +40,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    protected virtual void HitTarget(GameObject go)
+    protected virtual void HitTarget(Unit unit)
     {
         Destroy(gameObject);
     }

@@ -24,12 +24,9 @@ public class Bullet : Projectile
         this.direction = dir.normalized;
     }
 
-    protected override void HitTarget(GameObject go)
-    {
-        var enemy = go.GetComponent<Enemy>();
-        
-        if(enemy != null)
-            enemy.TakeDamage(damage);
+    protected override void HitTarget(Unit unit)
+    {        
+        unit.TakeDamage(damage);
 
         var effect = Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effect, 2);

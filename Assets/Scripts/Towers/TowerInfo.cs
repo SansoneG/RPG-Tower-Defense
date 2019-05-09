@@ -27,7 +27,7 @@ public class TowerInfo : MonoBehaviour
         if(targetter == null)
             targetter = GetComponentInChildren<Targetter>();
 
-        return targetter.GetRange();
+        return targetter.Range;
     }
 
     public float GetDamagePerSecond()

@@ -21,9 +21,6 @@ public class EnemyMovement : MonoBehaviour
     private float attackCooldown;
 
     [SerializeField]
-    private string friendlyTag = "Friendly";
-
-    [SerializeField]
     private Transform destination;
 
     [SerializeField]
@@ -78,14 +75,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void Attack()
     {
-        var building = target.GetComponent<Building>();
+        var unit = target.GetComponent<Unit>();
 
-        if(building == null)
+        if(unit == null)
         {
             Debug.Log("Why does " + gameObject.name + " has no Building COomponent");
             return;
         }
-        building.TakeDamage(attackDamage);
+        unit.TakeDamage(attackDamage);
     }
 
     private void FaceTarget(Vector3 position)
@@ -97,17 +94,17 @@ public class EnemyMovement : MonoBehaviour
 
     private void SearchForTarget()
     {
-        GameObject[] buildings = GameObject.FindGameObjectsWithTag(friendlyTag);
+        var defenders = Unit.Defenders;
 
         float shortestDistance = Mathf.Infinity;
-        GameObject nearestBuilding = null;
-        foreach (var building in buildings)
+        Unit nearestBuilding = null;
+        foreach (var defender in defenders)
         {
-            float distanceToBuilding = Vector3.Distance(transform.position, building.transform.position);
+            float distanceToBuilding = Vector3.Distance(transform.position, defender.transform.position);
             if(distanceToBuilding < shortestDistance) 
             {
                 shortestDistance = distanceToBuilding;
-                nearestBuilding = building;
+                nearestBuilding = defender;
             }
         }
 

@@ -68,7 +68,7 @@ public class LaserBeamer : MonoBehaviour, Weapon
 
     private void DamageEnemy()
     {
-        var enemy = targetter.CurrentTarget.GetComponent<Enemy>();
+        var enemy = targetter.CurrentTarget.GetComponent<Unit>();
 
         if(enemy == null)
             return;

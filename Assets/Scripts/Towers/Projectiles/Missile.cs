@@ -37,16 +37,18 @@ public class Missile : Projectile
         base.Shoot(target, damage);
     }
 
-    protected override void HitTarget(GameObject go)
+    protected override void HitTarget(Unit unit)
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
         foreach (var collider in colliders)
         {
-            var enemy = collider.gameObject.GetComponent<Enemy>();
+            var enemy = collider.gameObject.GetComponent<Unit>();
         
-            if(enemy != null)
+            if(enemy != null && enemy.Team == Team.Monster)
+            {
                 enemy.TakeDamage(damage);
+            }
         }
 
         var effect = Instantiate(impactEffect, transform.position, transform.rotation);

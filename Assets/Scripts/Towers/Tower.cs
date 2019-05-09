@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class Tower : Unit
 {
   
     // Make this some kind of central statc thing maybe
@@ -13,8 +13,9 @@ public class Tower : MonoBehaviour
 
     private TowerInfo currentTower;
 
-    void Awake()
+    protected new void Awake()
     {
+        base.Awake();
         SetTower(towers);
     }
 

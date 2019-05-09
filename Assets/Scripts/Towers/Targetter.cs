@@ -6,12 +6,7 @@ public class Targetter : MonoBehaviour
 {
 
     private Transform currentTarget;
-
-    public Transform CurrentTarget 
-    {
-        get { return currentTarget; }
-        private set { currentTarget = value; }
-    }
+    public Transform CurrentTarget => currentTarget;
 
     [Header("Stats")]
 
@@ -19,11 +14,10 @@ public class Targetter : MonoBehaviour
     [SerializeField]
     private float range = 10f;
 
+    public float Range => range;
+
 
     [Header("Unity Setup Fields")]
-
-    [SerializeField]
-    private string enemyTag = "Enemy";
 
     [SerializeField]
     private float searchRate = 0.1f;
@@ -49,10 +43,10 @@ public class Targetter : MonoBehaviour
 
     private void SearchForTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        var enemies = Unit.Monster;
 
         float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
+        Unit nearestEnemy = null;
         foreach (var enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
@@ -65,11 +59,11 @@ public class Targetter : MonoBehaviour
 
         if(nearestEnemy != null && shortestDistance <= range) 
         {
-            CurrentTarget = nearestEnemy.transform;
+            currentTarget = nearestEnemy.transform;
         } 
         else
         {
-            CurrentTarget = null;
+            currentTarget = null;
         }
     }
 
@@ -79,11 +73,6 @@ public class Targetter : MonoBehaviour
         var lookRotation = Quaternion.LookRotation(dir);
         var rotation = (Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed)).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-    }
-
-    public float GetRange()
-    {
-        return range;
     }
 
     void OnDrawGizmos()
