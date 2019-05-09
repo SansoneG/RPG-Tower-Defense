@@ -49,6 +49,14 @@ public class Unit : MonoBehaviour
 
     public virtual void OnDestroy()
     {
+        if(team == Team.Defender)
+        {
+            defenders.Remove(this);
+        }
+        else
+        {
+            monster.Remove(this);
+        }
         Destroy(gameObject);
     }
 

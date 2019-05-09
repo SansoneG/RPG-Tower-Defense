@@ -51,12 +51,6 @@ public class Tower : Unit
         return currentTowerLevel.upgradesTo;
     }
 
-    public void Destroy()
-    {
-        Debug.Log("Something destroyed this tower");
-        Destroy(gameObject);
-    }
-
 }
 
 [System.Serializable]

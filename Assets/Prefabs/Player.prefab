@@ -968,10 +968,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2275835513371676027}
   - component: {fileID: 2275835513371676028}
+  - component: {fileID: 5251013327029899242}
   - component: {fileID: 2275835513371676029}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Friendly
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1011,6 +1012,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.25, z: 0}
+--- !u!114 &5251013327029899242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2275835513371676030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b64f74385c7904aa553f63b9600983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
+  maxHealth: 1000
 --- !u!114 &2275835513371676029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1065,10 +1080,6 @@ PrefabInstance:
     - target: {fileID: 100138, guid: 71b668421730fb441a31d3bbc7f9944e, type: 3}
       propertyPath: m_Name
       value: ybot
-      objectReference: {fileID: 0}
-    - target: {fileID: 100138, guid: 71b668421730fb441a31d3bbc7f9944e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: 71b668421730fb441a31d3bbc7f9944e, type: 3}
       propertyPath: m_LocalPosition.x

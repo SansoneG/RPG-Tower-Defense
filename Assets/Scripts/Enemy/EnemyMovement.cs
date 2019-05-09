@@ -30,12 +30,14 @@ public class EnemyMovement : MonoBehaviour
     private Collider targetCollider;
 
     private NavMeshAgent agent;
+    private Animator animator;
 
     void Start()
     {
         InvokeRepeating("SearchForTarget", 0f, searchRate);
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(destination.position);
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -53,27 +55,35 @@ public class EnemyMovement : MonoBehaviour
             if(distance <= attackRange)
             {
                 agent.isStopped = true;
-                FaceTarget(closestPosition);
+                FaceTarget(target.position);
                 if(attackCooldown <= 0)
                 {
                     Debug.Log("Attack");
                     attackCooldown = 1f / attackSpeed;
                     Attack();
+                    animator.SetBool("inCombat", true);
+                    animator.speed = 2 * attackSpeed;
                 }
             }
             else
             {
                 agent.isStopped = false;
+                animator.SetBool("inCombat", false);
+                animator.speed = 1;
             }
         }
         else
         {
             agent.SetDestination(destination.position);
             agent.isStopped = false;
-        }        
+            animator.SetBool("inCombat", false);
+            animator.speed = 1;
+        }
+
+        animator.SetFloat("Speed", agent.velocity.magnitude);  
     }
 
-    private void Attack()
+    public void Attack()
     {
         var unit = target.GetComponent<Unit>();
 
